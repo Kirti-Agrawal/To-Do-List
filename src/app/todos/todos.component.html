@@ -1,0 +1,40 @@
+<!-- 1. to do list -->
+
+<div class="container">
+    <div class="row">
+        <div class="offset-md-2 col-md-11">
+            <h2>To Do List by Coder</h2>
+        </div>
+    </div>
+    <hr>
+
+    <div class="row">
+        <div class="col-md-3">
+            <app-todo-add (todoAdd)="onAdd($event)"></app-todo-add>
+
+        </div>
+
+        <div class="col-md-9">
+            <h4 *ngIf="!todoList.length; else elseBlock"> All tasks are done ! Add if anything left </h4>
+            <!-- bda vala ngIf -->
+            <ng-template #elseBlock>
+                <div class="list-group" *ngFor="let todo of todoList;let i= index">
+                    <app-todo-item [todoInput]="todo" (todoDelete)="onDelete($event)"
+                        (todoChecked)="onCheckbox($event)"></app-todo-item>
+                    <!-- custom event bnake listen krna -->
+
+                </div>
+            </ng-template>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12">
+
+        </div>
+    </div>
+</div>
+
+
+<!-- 2.  -->

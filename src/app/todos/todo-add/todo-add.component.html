@@ -1,0 +1,28 @@
+<form (ngSubmit)= "onSubmit(addform)" #addform="ngForm">
+    <div class="card border-warning">
+<div class="card-header bg-warning">
+        <div class="form-group">
+            <label for="newTitle">Title</label>
+            <input type="text" name="title" ngModel class="form-control" id="newTitle" placeholder="What do you wanna add?">
+        </div>
+</div>
+
+        <div class="card-body text-warning">
+            <div class="form-group">
+                <label for="newDesc">Description</label>
+                <textarea type="text" class="form-control" name="desc" ngModel id="newDesc" placeholder="Add some details">
+</textarea>
+            </div>
+            </div>
+<div class="card-footer bg-light">
+    <button type="button" class="btn btn-light btn-sm" 
+    (click)="onCancel(addform)"
+    >Cancel</button>
+            <button type="submit" class="btn btn-secondary btn-sm" [ngStyle]="{'float':'right'}">Add</button>
+
+
+        </div>
+    </div>
+</form>
+
+<p *ngIf="errorMode" [ngStyle]="{'color':'red'}">Please add Something </p>
